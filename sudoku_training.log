@@ -241,3 +241,7 @@
 2024-12-02 20:41:18,080 - INFO: Learning rate: 4.03e-05
 2024-12-02 20:41:18,213 - INFO: Saved new best model with val_loss: 0.6442
 2024-12-02 20:41:18,213 - INFO: Total Training Time: 0.38 hours
+2024-12-03 04:47:33,087 - INFO: Could not load the run context. Logging offline
+2024-12-03 04:49:06,878 - INFO: Could not load the run context. Logging offline
+2024-12-03 04:51:30,768 - INFO: Could not load the run context. Logging offline
+2024-12-03 04:58:04,862 - INFO: Could not load the run context. Logging offline
