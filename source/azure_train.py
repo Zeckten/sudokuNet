@@ -3,7 +3,7 @@ from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
 import os
 
-def setup_azure_compute(ws, compute_name, vm_size='STANDARD_NC6'):
+def setup_azure_compute(ws, compute_name, vm_size):
     """Setup Azure compute target"""
     try:
         compute_target = ComputeTarget(workspace=ws, name=compute_name)
@@ -25,7 +25,7 @@ def main():
     ws = Workspace.from_config()
     
     # Setup compute target
-    compute_target = setup_azure_compute(ws, 'gpu-cluster', 'STANDARD_NC6')
+    compute_target = setup_azure_compute(ws, 'gpu-cluster', 'STANDARD_D1')
     
     # Create Azure ML environment
     env = Environment.from_pip_requirements('sudoku-env', 'requirements.txt')
@@ -42,7 +42,7 @@ def main():
         compute_target=compute_target,
         environment=env,
         arguments=[
-            '--data_path', ws.datasets.get('sudoku').as_mount(),
+            '--data_path', ws.datasets.get('sudoku'),
             '--batch_size', 1024,
             '--epochs', 20,
             '--sample_size', 100000

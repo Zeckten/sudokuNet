@@ -321,8 +321,10 @@ def main():
         sample_size = args.sample_size
     else:
         print("No GPU detected - using CPU settings")
-        batch_size = 32
-        sample_size = 10000
+        # batch_size = 32
+        # sample_size = 10000
+        batch_size = args.batch_size
+        sample_size = args.sample_size
     
     # Set number of workers based on CPU cores
     num_workers = min(os.cpu_count(), 8)  # Cap at 8 workers
