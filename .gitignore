@@ -1,0 +1,29 @@
+# Python virtual environment
+sudokuNet/Lib/
+sudokuNet/Scripts/
+sudokuNet/pyvenv.cfg
+
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Logs
+*.log
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# PyTorch model files
+*.pth
+
+# Data files
+data/*.csv
+
+# Azure ML files
+*.yml
+*.json
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
