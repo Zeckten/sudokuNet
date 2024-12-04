@@ -316,7 +316,7 @@ def main():
     parser.add_argument('--data_path', type=str, default='data/sudoku.csv')
     parser.add_argument('--batch_size', type=int, default=64)
     parser.add_argument('--epochs', type=int, default=10)
-    parser.add_argument('--sample_size', type=int, default=100000)
+    parser.add_argument('--sample_size', type=int, default=10000)
     args = parser.parse_args()
     
     
@@ -384,7 +384,9 @@ def main():
     )
     
     # Save final model
-    torch.save(trained_model.state_dict(), 'sudoku_solver_final.pth')
+    torch.save(trained_model.state_dict(), 'pretrained/solver_last.pth')
+    torch.save(trained_model.state_dict(), 'pretrained/solver_' + str(epochs) + 'x' + str(sample_size) + '.pth')
+
         
 
 if __name__ == "__main__":

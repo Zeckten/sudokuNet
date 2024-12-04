@@ -2,6 +2,7 @@ import torch
 import numpy as np
 from SudokuSolver import SudokuSolver
 import pandas as pd
+import argparse
 
 def load_model(model_path):
     """Load the trained model."""
@@ -45,8 +46,11 @@ def calculate_accuracy(original, prediction, solution):
     return accuracy, complete_correct
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--solver_path', type=str, default='pretrained/solver_last.pth')
+    args = parser.parse_args()
     # Load the trained model
-    model_path = 'sudoku_solver_final.pth'
+    model_path = args.solver_path
     try:
         model = load_model(model_path)
         print("Model loaded successfully!")

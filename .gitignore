@@ -1,7 +1,5 @@
 # Python virtual environment
-sudokuNet/Lib/
-sudokuNet/Scripts/
-sudokuNet/pyvenv.cfg
+sudokuNet/
 my-venv/
 
 # Byte-compiled files
