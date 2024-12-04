@@ -329,9 +329,9 @@ def main():
         sample_size = args.sample_size
     else:
         print("No GPU detected - using CPU settings")
-        batch_size = 32
-        epochs = 10
-        sample_size = 10000
+        batch_size = max(64, args.batch_size)
+        epochs = min(5, args.epochs)
+        sample_size = min(16384, args.sample_size)
     print("Batch size: " + str(batch_size) + " | Epochs: " + str(epochs) + " | Training sample: " + str(sample_size))
     
     

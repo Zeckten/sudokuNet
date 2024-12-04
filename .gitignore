@@ -14,6 +14,9 @@ __pycache__/
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
+# TensorBoard runs
+runs/
+
 # PyTorch model files
 *.pth
 
