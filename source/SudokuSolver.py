@@ -216,7 +216,7 @@ def train_sudoku_solver(model, train_loader, val_loader, epochs=20, learning_rat
     best_val_loss = float('inf')
     best_checkpoint_path = os.path.join(checkpoint_dir, 'best_model.pth')
     latest_checkpoint_path = os.path.join(checkpoint_dir, 'latest_model.pth')
-    patience = 10
+    patience = 2
     patience_counter = 0
     
     scaler = torch.amp.GradScaler('cuda')  # For mixed precision training
@@ -263,7 +263,7 @@ def train_sudoku_solver(model, train_loader, val_loader, epochs=20, learning_rat
         
         with torch.no_grad():
             for batch in tqdm(val_loader, desc='Validation', unit='batch'):
-                with torch.cuda.amp.autocast():
+                with torch.amp.autocast('cuda'):
                     val_batch_loss, val_batch_accuracy = validate_batch(model, batch, criterion, device)
                 val_loss += val_batch_loss
                 val_accuracy += val_batch_accuracy
@@ -385,7 +385,8 @@ def main():
     
     # Save final model
     torch.save(trained_model.state_dict(), 'pretrained/solver_last.pth')
-    torch.save(trained_model.state_dict(), 'pretrained/solver_' + str(epochs) + 'x' + str(sample_size) + '.pth')
+    os.makedirs("pretrained/batch" + str(batch_size), exist_ok=True)
+    torch.save(trained_model.state_dict(), 'pretrained/batch' + str(batch_size) + '/solver_' + str(epochs) + 'x' + str(sample_size) + '.pth')
 
         
 

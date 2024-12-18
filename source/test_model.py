@@ -9,7 +9,7 @@ from torch.utils.tensorboard import SummaryWriter
 def load_model(model_path):
     """Load the trained model."""
     model = SudokuSolver()
-    model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
+    model.load_state_dict(torch.load(model_path, map_location=torch.device('cuda')))
     model.eval()
     return model
 
