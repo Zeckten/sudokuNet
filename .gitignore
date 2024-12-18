@@ -16,10 +16,10 @@ __pycache__/
 runs/
 
 # PyTorch model files
-#*.pth
+*.pth
 
 # Data files
-#data/*.csv
+data/*.csv
 
 # Azure ML files
 *.yml
